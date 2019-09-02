@@ -1,6 +1,9 @@
 # Alpine 3.9 is the last version that uses Python 3.6
 FROM alpine:3.9
 
+# bash: for Invenio scripts
+# openssl-dev: for cryptography pip lib
+# libpq and postgresql-dev: for psycopg pip lib
 RUN set -ex \
   && buildDeps=' \
     build-base \
@@ -12,6 +15,7 @@ RUN set -ex \
     python3-dev \
   ' \
   && apk --no-cache --update add \
+    bash \
     curl \
     git \
     cairo-dev \
